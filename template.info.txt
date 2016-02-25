@@ -1,0 +1,7 @@
+base     starter
+author   Klaus Vormweg
+email    klaus.vormweg@gmx.de
+date     2016-02-08
+name     Monochrome Template
+desc     The template that gets you started
+url      tbd

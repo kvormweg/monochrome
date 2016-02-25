@@ -1,0 +1,65 @@
+/* a11y */
+div.dokuwiki .vishelp {
+  display: none;
+}
+div.dokuwiki nav.mainmenu {
+	padding: 0px 1em 5px 0px;
+	float: left;
+}
+
+div.dokuwiki nav.mainmenu > ul {
+  position: absolute;
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  border-left: 1px solid __border__;
+}
+div.dokuwiki nav.mainmenu > ul .curid a {
+  font-weight: bold;
+}
+div.dokuwiki nav.mainmenu ul.idx li {
+  list-style-image: none;
+}
+div.dokuwiki nav.mainmenu ul.idx li.open {
+	list-style-image: url("../../images/open.png");
+}
+div.dokuwiki input#hamburger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+div.dokuwiki label[for="hamburger"] img {
+	margin-bottom: 3px;
+}
+div.dokuwiki #hamburger:checked ~ ul {
+  display: block;
+  background-color: __background_alt__;
+  padding: 1em 0 1em 2em;
+  width: auto;
+  font-size: 0.875rem;
+  max-width: 20.5em;
+  z-index: 99;
+}
+div.dokuwiki nav.mainmenu ul li {
+  margin: 0 1em 0 0;
+  line-height: 1.25em;
+  padding: 0.25em 0;
+}
+
+div.dokuwiki nav.mainmenu ul ul {
+  padding: 0px 0px 0.25em 1em;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+div.dokuwiki nav.mainmenu ul ul li {
+  border-top: 1px dotted black;
+  margin-right: 0 !important;
+  padding: 0.25em 0;
+}
+
+div.dokuwiki nav.mainmenu ul li.open, div.dokuwiki nav.mainmenu ul ul li.open {
+  padding-right: 0;
+  background-image: none;
+}

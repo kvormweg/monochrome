@@ -1,0 +1,272 @@
+/**
+ * This file provides the styles for the page tools
+ * (fly out navigation beside the page to edit, etc).
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ * @author Andreas Gohr <andi@splitbrain.org>
+ */
+
+#dokuwiki__site > .site {
+    /* give space to the right so the tools won't disappear on smaller screens */
+    padding-right: 50px;
+    /* give the same space to the left to balance it out */
+    padding-left: 50px;
+}
+.dokuwiki div.page {
+    height: 190px;
+    min-height: 190px; /* 30 (= height of icons) x 6 (= maximum number of possible tools) + 2x5 */
+    height: auto;
+}
+
+#dokuwiki__pagetools ul {
+    margin: 0;
+    padding: 0;
+    /* add transparent border to prevent jumping when proper border is added on hover */
+    border: 1px solid transparent;
+    z-index: 10;
+}
+[dir=rtl] #dokuwiki__pagetools ul {
+    right: auto;
+    left: 0;
+    text-align: left;
+}
+
+/*____________ page tools ____________*/
+
+#dokuwiki__pagetools {
+    padding-top: 5px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: __pagetools__;
+    background-color: __pt_background__;
+    width: 50px;
+    height: 100%;
+    z-index: 10;
+}
+#dokuwiki__pagetools hr {
+	margin: 5px 0px;
+}
+#dokuwiki__pagetools ul li {
+    padding: 0;
+    margin: 0 10px;
+    list-style: none;
+    font-size: 0.875em;
+}
+
+#dokuwiki__pagetools ul li a {
+    display: block;
+    padding: 0;
+    background-position: right 0;
+    background-repeat: no-repeat;
+    /* add transparent border to prevent jumping when proper border is added on focus */
+    border: 1px solid transparent;
+    white-space: nowrap;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+#dokuwiki__pagetools ul li a:before {
+    content: url(images/iconssprite.png);
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+}
+#dokuwiki__pagetools ul li a:hover {
+    background-color: __pt_rollover__;
+}
+#dokuwiki__pagetools ul.pagetools, #dokuwiki__pagetools ul.sitetools {
+    margin-top: 30px;
+}
+
+/*____________ all available icons in sprite ____________*/
+#dokuwiki__pagetools ul li a.edit {
+  background-position: right -60px;
+}
+#dokuwiki__pagetools ul li a.edit:before {
+  margin-top: -60px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.edit {
+  background-position: left -60px;
+}
+#dokuwiki__pagetools ul li a.create {
+  background-position: right -120px;
+}
+#dokuwiki__pagetools ul li a.create:before {
+  margin-top: -120px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.create {
+  background-position: left -120px;
+}
+#dokuwiki__pagetools ul li a.show {
+  background-position: right -240px;
+}
+#dokuwiki__pagetools ul li a.show:before {
+  margin-top: -240px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.show {
+  background-position: left -240px;
+}
+#dokuwiki__pagetools ul li a.source {
+  background-position: right -300px;
+}
+#dokuwiki__pagetools ul li a.source:before {
+  margin-top: -300px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.source {
+  background-position: left -300px;
+}
+#dokuwiki__pagetools ul li a.draft {
+  background-position: right -180px;
+}
+#dokuwiki__pagetools ul li a.draft:before {
+  margin-top: -180px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.draft {
+  background-position: left -180px;
+}
+#dokuwiki__pagetools ul li a.revs {
+  background-position: right -420px;
+}
+#dokuwiki__pagetools ul li a.revs:before {
+  margin-top: -420px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.revs {
+  background-position: left -420px;
+}
+#dokuwiki__pagetools ul li a.backlink {
+  background-position: right -480px;
+}
+#dokuwiki__pagetools ul li a.backlink:before {
+  margin-top: -480px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.backlink {
+  background-position: left -480px;
+}
+#dokuwiki__pagetools ul li a.top {
+  background-position: right -600px;
+}
+#dokuwiki__pagetools ul li a.top:before {
+  margin-top: -600px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.top {
+  background-position: left -600px;
+}
+#dokuwiki__pagetools ul li a.revert {
+  background-position: right -360px;
+}
+#dokuwiki__pagetools ul li a.revert:before {
+  margin-top: -360px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.revert {
+  background-position: left -360px;
+}
+#dokuwiki__pagetools ul li a.subscribe {
+  background-position: right -540px;
+}
+#dokuwiki__pagetools ul li a.subscribe:before {
+  margin-top: -540px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.subscribe {
+  background-position: left -540px;
+}
+#dokuwiki__pagetools ul li a.mediaManager {
+  background-position: right -660px;
+}
+#dokuwiki__pagetools ul li a.mediaManager:before {
+  margin-top: -660px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.mediaManager {
+  background-position: left -660px;
+}
+#dokuwiki__pagetools ul li a.back {
+  background-position: right -720px;
+}
+#dokuwiki__pagetools ul li a.back:before {
+  margin-top: -720px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.back {
+  background-position: left -720px;
+}
+#dokuwiki__pagetools ul li a.img_backto {
+  background-position: right -720px;
+}
+#dokuwiki__pagetools ul li a.img_backto:before {
+  margin-top: -720px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.img_backto {
+  background-position: left -720px;
+}
+#dokuwiki__pagetools ul li a.admin {
+  background-position: right -780px;
+}
+#dokuwiki__pagetools ul li a.admin:before {
+  margin-top: -780px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.admin {
+  background-position: left -780px;
+}
+#dokuwiki__pagetools ul li a.logout {
+  background-position: right -900px;
+}
+#dokuwiki__pagetools ul li a.logout:before {
+  margin-top: -900px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.logout {
+  background-position: left -900px;
+}
+#dokuwiki__pagetools ul li a.login {
+  background-position: right -960px;
+}
+#dokuwiki__pagetools ul li a.login:before {
+  margin-top: -960px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.login {
+  background-position: left -960px;
+}
+#dokuwiki__pagetools ul li a.register {
+  background-position: right -840px;
+}
+#dokuwiki__pagetools ul li a.register:before {
+  margin-top: -840px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.register {
+  background-position: left -840px;
+}
+#dokuwiki__pagetools ul li a.profile {
+  background-position: right -840px;
+}
+#dokuwiki__pagetools ul li a.profile:before {
+  margin-top: -840px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.profile {
+  background-position: left -840px;
+}
+#dokuwiki__pagetools ul li a.index {
+  background-position: right -1080px;
+}
+#dokuwiki__pagetools ul li a.index:before {
+  margin-top: -1080px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.index {
+  background-position: left -1080px;
+}
+#dokuwiki__pagetools ul li a.recent {
+  background-position: right -1140px;
+}
+#dokuwiki__pagetools ul li a.recent:before {
+  margin-top: -1140px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.recent {
+  background-position: left -1140px;
+}
+#dokuwiki__pagetools ul li a.media {
+  background-position: right -660px;
+}
+#dokuwiki__pagetools ul li a.media:before {
+  margin-top: -660px;
+}
+[dir=rtl] #dokuwiki__pagetools ul li a.media {
+  background-position: left -660px;
+}
