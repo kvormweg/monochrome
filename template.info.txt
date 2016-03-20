@@ -1,7 +1,7 @@
-base     starter
+base     monochrome
 author   Klaus Vormweg
 email    klaus.vormweg@gmx.de
-date     2016-02-08
+date     2016-03-20
 name     Monochrome Template
-desc     The template that gets you started
+desc     Monochrome wiki template
 url      tbd
