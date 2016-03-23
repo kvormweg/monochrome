@@ -55,7 +55,7 @@ if (file_exists(DOKU_INC.'data/media/logo.png')):
     tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
   endif;
 else:
-  tpl_link(wl(),'<img src="',tpl_basedir(),'images/headerpic.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
+  tpl_link(wl(),'<img src="'.tpl_basedir().'images/headerpic.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 endif;
 echo '                <h1>';
 tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"');
@@ -163,8 +163,6 @@ if ($ACT != 'denied'):
   ));
   if(!plugin_isdisabled('move')):
     echo '<li class="plugin_move_page"><a class="action move" href="#" rel="nofollow" title="Move Page">Move Page</a></li>',"\n";
-  else:
-    error_log('move plugin disabled');
   endif;
   echo '                      </ul>
                 </div>',"\n";

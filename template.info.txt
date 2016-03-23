@@ -1,7 +1,7 @@
 base     monochrome
 author   Klaus Vormweg
 email    klaus.vormweg@gmx.de
-date     2016-03-20
+date     2016-03-23
 name     Monochrome Template
 desc     Monochrome wiki template
 url      tbd
