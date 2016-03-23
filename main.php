@@ -49,10 +49,13 @@ echo "\n",'        <!-- ********** HEADER ********** -->
         <div id="dokuwiki__header">
           <div class="pad">
             <div class="headings">',"\n";
-/* how to insert logo: upload your logo into the data/media folder (root of the media manager)
-   as 'logo.png' or replace 'logo.png' below accordingly */
-if ($ACT != 'denied'):
-  tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
+/* how to insert logo: upload your logo into the data/media folder (root of the media manager) as 'logo.png' */
+if (file_exists(DOKU_INC.'data/media/logo.png')):
+  if ($ACT != 'denied'):
+    tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
+  endif;
+else:
+  tpl_link(wl(),'<img src="',tpl_basedir(),'images/headerpic.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 endif;
 echo '                <h1>';
 tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"');
@@ -158,9 +161,13 @@ if ($ACT != 'denied'):
       'media'     => tpl_action('media', 1, 'li', 1),
       'index'     => tpl_action('index', 1, 'li', 1)
   ));
-  echo '<li class="plugin_move_page"><a href="#" rel="nofollow" title="Move Page">Move Page</a></li>
-                      </ul>',"\n";
-  echo '                </div>',"\n";
+  if(!plugin_isdisabled('move')):
+    echo '<li class="plugin_move_page"><a class="action move" href="#" rel="nofollow" title="Move Page">Move Page</a></li>',"\n";
+  else:
+    error_log('move plugin disabled');
+  endif;
+  echo '                      </ul>
+                </div>',"\n";
 endif;
 echo '        </div><!-- /wrapper -->
 
