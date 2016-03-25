@@ -1,13 +1,11 @@
 /**
  * This file provides the styles for printing.
- *
- * @todo: improve and finish
  */
 
 body {
     font: normal 87.5%/1.3 Garamond, Baskerville, "Hoefler Text", "Nimbus Roman No9 L", serif;
-    background-color: #fff;
-    color: #000;
+    background-color: __background__;
+    color: __text__;
 }
 
 /* hide certain sections */
@@ -56,8 +54,7 @@ ol ol ol ol ol {
 a:link,
 a:visited {
     text-decoration: none;
-    border-bottom: 1pt dotted;
-    color: #333;
+    color: __existing__;
     background-color: inherit;
     background-image: none;
     padding: 0;
@@ -105,11 +102,15 @@ mark {
 blockquote {
     padding: 0 10pt;
     margin: 0;
-    border: solid #ccc;
+    border: solid __border__;
     border-width: 0 0 0 2pt;
 }
 [dir=rtl] blockquote {
     border-width: 0 2pt 0 0;
+}
+abbr {
+  text-decoration: none;
+  border-bottom: none;
 }
 
 /* tables */
@@ -117,14 +118,14 @@ table {
     border-collapse: collapse;
     empty-cells: show;
     border-spacing: 0;
-    border: 1pt solid #ccc;
+    border: 1pt solid __border__;
 }
 th,
 td {
     padding: 3pt 5pt;
     margin: 0;
     vertical-align: top;
-    border: 1pt solid #666;
+    border: 1pt solid __borderdark__;
     text-align: left;
 }
 [dir=rtl] th,
@@ -139,16 +140,22 @@ th {
 /*____________ a bit of layout ____________*/
 
 #dokuwiki__header {
-    border-bottom: 2pt solid #ccc;
+  border-bottom: 2pt solid __border__;
+}
+#dokuwiki__header .headings a {
+	display: block;
+	float: left;
 }
 #dokuwiki__header h1 {
-    font-size: 1.5em;
+  float: right;
+  clear: none;
+  margin: 0;
 }
 #dokuwiki__header h1 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .dokuwiki div.footnotes {
-    clear: both;
-    border-top: 1pt solid #000;
-    margin-top: 10pt;
+  clear: both;
+  border-top: 1pt solid __borderdark__;
+  margin-top: 10pt;
 }

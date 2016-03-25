@@ -4,82 +4,89 @@
  * @author Anika Henke <anika@selfthinker.org>
  */
 
-@media only screen and (max-width: 42em) {
+@media only screen and (max-width: 1023px) {
 
-#dokuwiki__aside {
-    width: 100%;
-    float: none;
-    margin-bottom: 1.4em;
-}
-#dokuwiki__aside > .pad {
-    margin: 0;
-}
+  #dokuwiki__site > .site {
+  	padding-left: 10px;
+  }
 
-.hasSidebar #dokuwiki__content {
-    float: none;
-    margin-left: 0;
-    margin-right: 0;
-}
-.hasSidebar #dokuwiki__content > .pad {
-    margin-left: 0;
-}
-[dir=rtl] .hasSidebar #dokuwiki__content > .pad {
-    margin-right: 0;
-}
+} /* media 1023px */
 
-#dokuwiki__header .headings {
-    margin: 2.1em 0 0;
-}
+@media only screen and (max-width: 799px) {
 
-#dokuwiki__header .tools {
-    margin-bottom: .7em;
-}
+  #dokuwiki__aside {
+      width: 100%;
+      float: none;
+      margin-bottom: 1.4em;
+  }
+  #dokuwiki__aside > .pad {
+      margin: 0;
+  }
 
-#dokuwiki__header .headings,
-#dokuwiki__header .tools,
-#dokuwiki__header .tools li {
-    float: none;
-    text-align: left;
-}
-[dir=rtl] #dokuwiki__header .tools,
-[dir=rtl] #dokuwiki__header .tools li {
-    float: none;
-    text-align: right;
-}
-[dir=rtl] #dokuwiki__header .headings {
-    float: none;
-    text-align: right;
-}
+  .hasSidebar #dokuwiki__content {
+      float: none;
+      margin-left: 0;
+      margin-right: 0;
+  }
+  .hasSidebar #dokuwiki__content > .pad {
+      margin-left: 0;
+  }
+  [dir=rtl] .hasSidebar #dokuwiki__content > .pad {
+      margin-right: 0;
+  }
 
-#dokuwiki__sitetools ul {
-    padding: 0;
-}
-#dokuwiki__sitetools li {
-    margin: 0 1.5em 0 0;
-}
-[dir=rtl] #dokuwiki__sitetools li {
-    margin: 0 0 0 1.5em;
-}
+  #dokuwiki__header .headings {
+      margin: 0;
+  }
 
-#dokuwiki__header div.breadcrumbs {
-    margin-bottom: .7em;
-}
+  #dokuwiki__header .tools {
+      margin-bottom: .7em;
+  }
 
+  #dokuwiki__header .headings,
+  #dokuwiki__header .tools,
+  #dokuwiki__header .tools li {
+      float: none;
+      text-align: left;
+  }
+  [dir=rtl] #dokuwiki__header .tools,
+  [dir=rtl] #dokuwiki__header .tools li {
+      float: none;
+      text-align: right;
+  }
+  [dir=rtl] #dokuwiki__header .headings {
+      float: none;
+      text-align: right;
+  }
 
-#dokuwiki__header ul.a11y.skip {
-    left: auto !important;
-    right: 1em !important;
-    top: 3.1em !important;
-    width: auto !important;
-    height: auto !important;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-[dir=rtl] #dokuwiki__header ul.a11y.skip {
-    right: auto !important;
-    left: 1em !important;
-}
+  #dokuwiki__sitetools ul {
+      padding: 0;
+  }
+  #dokuwiki__sitetools li {
+      margin: 0 1.5em 0 0;
+  }
+  [dir=rtl] #dokuwiki__sitetools li {
+      margin: 0 0 0 1.5em;
+  }
+} /* media 799px */
 
+@media only screen and (max-width: 639px) {
 
-} /* /@media */
+  #dokuwiki__site > .site {
+  	padding-left: 0;
+  	padding-right: 40px;
+  }
+
+  #dw__toc {
+    display: none;
+  }
+  #dokuwiki__site {
+  	padding: 0;
+  }
+  #dokuwiki__sitetools, #dokuwiki__footer {
+  	padding-left: 13px;
+  }
+  #dokuwiki__footer .user, #dokuwiki__footer .doc {
+  	float: none;
+  }
+} /* media 639px */
