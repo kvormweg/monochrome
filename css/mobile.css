@@ -15,9 +15,13 @@
 @media only screen and (max-width: 799px) {
 
   #dokuwiki__aside {
-      width: 100%;
-      float: none;
-      margin-bottom: 1.4em;
+    width: 100%;
+    float: none;
+    margin-bottom: 1.4em;
+    position: static;
+  }
+  .hasSidebar .wrapper {
+	  margin-left: 0;
   }
   #dokuwiki__aside > .pad {
       margin: 0;

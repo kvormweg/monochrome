@@ -100,17 +100,7 @@ echo '            <div class="clearer"></div>
             <hr class="a11y" />
         </div></div><!-- /header -->
 
-        <div class="wrapper">
-
-            <!-- ********** ASIDE ********** -->',"\n";
-if ($showSidebar):
-  echo '                <div id="dokuwiki__aside"><div class="pad aside include group">';
-  tpl_includeFile('sidebarheader.html');
-  tpl_include_page($conf['sidebar'], 1, 1); /* includes the nearest sidebar page */
-  tpl_includeFile('sidebarfooter.html');
-  echo '                    <div class="clearer"></div>
-                </div></div><!-- /aside -->',"\n";
-endif;
+        <div class="wrapper">',"\n";
 echo '            <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content">
               <div class="pad">',"\n";
@@ -125,8 +115,18 @@ echo '                    <!-- wikipage stop -->
 tpl_flush();
 tpl_includeFile('pagefooter.html');
 echo '            </div></div><!-- /content -->
-
-            <div class="clearer"></div>
+            <!-- ********** ASIDE ********** -->',"\n";
+if ($showSidebar):
+  echo '                <div id="dokuwiki__aside">
+                  <div class="pad aside include group">';
+  tpl_includeFile('sidebarheader.html');
+  tpl_include_page($conf['sidebar'], 1, 1); /* includes the nearest sidebar page */
+  tpl_includeFile('sidebarfooter.html');
+  echo '                    <div class="clearer"></div>
+                </div>
+              </div><!-- /aside -->',"\n";
+endif;
+echo '            <div class="clearer"></div>
             <hr class="a11y" />
 
             <!-- USER TOOLS and PAGE ACTIONS -->',"\n";

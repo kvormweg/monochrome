@@ -110,10 +110,6 @@
 /* sidebar
 ********************************************************************/
 
-#dokuwiki__aside {
-  padding-top: .4em;
-}
-
 .dokuwiki .aside {
   overflow: hidden;
   word-wrap: break-word;
