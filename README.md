@@ -1,7 +1,8 @@
 # Monochrome Template for Dokuwiki
 
 This template is meant for traditional wiki usage. The general look was partly inspired by Dokuwiki’s default template. As an additional means of navigation it features a sitemap on every page.
-License
+
+## License
 
 This template is published under the GNU General Public License (GPL) V2.
 
@@ -24,4 +25,3 @@ The basic configuration is done via template style settings.
 ## Browser compatibility
 
 This template should work well with all current browsers.
-

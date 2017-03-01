@@ -12,6 +12,9 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 header('X-UA-Compatible: IE=edge');
 
+$versionarr = getVersionData();
+$version = substr($versionarr['date'], 0, 10);
+
 $showSidebar = FALSE;
 if ($ID != $conf['sidebar']):
   $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
@@ -28,6 +31,9 @@ echo ' [', strip_tags($conf['title']), ']</title>
 tpl_metaheaders();
 echo '    <meta name="viewport" content="width=device-width,initial-scale=1" />', tpl_favicon(array('favicon', 'mobile'));
 tpl_includeFile('meta.html');
+if($version < '2017-02-19') {
+  echo '<link rel="stylesheet" type="text/css" href="css/adminpage.css"/>',"\n";
+}
 echo '</head>
 <body>',"\n";
 /* with these Conditional Comments you can better address IE issues in CSS files,
