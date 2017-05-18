@@ -93,4 +93,8 @@
   #dokuwiki__footer .user, #dokuwiki__footer .doc {
   	float: none;
   }
+  .dokuwiki fieldset {
+  	width: auto;
+	  max-width: 400px;
+  }
 } /* media 639px */
