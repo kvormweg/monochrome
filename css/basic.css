@@ -1,3 +1,4 @@
+
 /**
  * This file provides the most basic styles.
  *
@@ -292,13 +293,13 @@ kbd {
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
   /* same font stack should be used for ".dokuwiki table.diff td" in _diff.css */
   font-size: 1em;
-  background-color: __background_alt__;
   color: __text__;
   direction: ltr;
   text-align: left;
 }
 pre {
   border: 1px solid __border__;
+  background-color: #fafafa;
   padding: 0 .2em;
   overflow: auto;
   word-wrap: normal;
@@ -427,7 +428,7 @@ button:active,
 select:active,
 keygen:active,
 textarea:active {
-	border-color: __borderdark__;
+    border-color: __borderdark__;
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -435,11 +436,11 @@ button::-moz-focus-inner {
   padding: 0;
 }
 button {
-	background-color: __background__;
-	padding: 0.25em 0.75em;
+    background-color: __background__;
+    padding: 0.25em 0.75em;
 }
 button:hover {
-	border-color: __borderdark__;
+    border-color: __borderdark__;
 }
 select {
   max-width: 100%;
