@@ -40,7 +40,7 @@
 
 /*____________ tables ____________*/
 .dokuwiki div.table {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .dokuwiki table.inline {
   min-width: 50%;
