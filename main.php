@@ -141,35 +141,16 @@ if ($ACT != 'denied'):
   if ($conf['useacl']):
     echo '                        <h3 class="a11y">', $lang['user_tools'], '</h3>
                       <ul>',"\n";
-    tpl_toolsevent('usertools', array(
-      'login'     => tpl_action('login', 1, 'li', 1),
-      'profile'   => tpl_action('profile', 1, 'li', 1),
-      'register'  => tpl_action('register', 1, 'li', 1),
-      'admin'     => tpl_action('admin', 1, 'li', 1),
-    ));
+    echo (new \dokuwiki\Menu\UserMenu())->getListItems();
     echo '                        </ul>',"\n";
   endif;
   echo '                      <h3 class="a11y">', $lang['page_tools'], '</h3>
                     <ul class="pagetools">',"\n";
-  tpl_toolsevent('pagetools', array(
-    'edit'      => tpl_action('edit', 1, 'li', 1),
-    'revisions' => tpl_action('revisions', 1, 'li', 1),
-    'backlink'  => tpl_action('backlink', 1, 'li', 1),
-    'subscribe' => tpl_action('subscribe', 1, 'li', 1),
-    'revert'    => tpl_action('revert', 1, 'li', 1),
-    'top'       => tpl_action('top', 1, 'li', 1)
-  ));
+  echo (new \dokuwiki\Menu\PageMenu())->getListItems();
   echo '                    </ul>
                     <h3 class="a11y">', $lang['site_tools'], '</h3>',"\n";
   echo '                    <ul class="sitetools">';
-  tpl_toolsevent('sitetools', array(
-      'recent'    => tpl_action('recent', 1, 'li', 1),
-      'media'     => tpl_action('media', 1, 'li', 1),
-      'index'     => tpl_action('index', 1, 'li', 1)
-  ));
-  if(!plugin_isdisabled('move')):
-    echo '<li class="plugin_move_page"><a class="action move" href="#" rel="nofollow" title="Move Page">Move Page</a></li>',"\n";
-  endif;
+  echo (new \dokuwiki\Menu\SiteMenu())->getListItems();
   echo '                      </ul>
                 </div>',"\n";
 endif;
