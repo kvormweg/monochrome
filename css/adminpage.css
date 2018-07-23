@@ -8,3 +8,9 @@
 .dokuwiki div.ui-admin ul li a span.icon svg path {
 	fill: #333;
 }
+.dokuwiki div.ui-admin ul.admin_plugins {
+	clear: left;
+}
+.dokuwiki div.ui-admin ul.admin_plugins::before {
+	content: "__________";
+}
