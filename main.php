@@ -31,9 +31,6 @@ echo ' [', strip_tags($conf['title']), ']</title>
 tpl_metaheaders();
 echo '    <meta name="viewport" content="width=device-width,initial-scale=1" />', tpl_favicon(array('favicon', 'mobile'));
 tpl_includeFile('meta.html');
-if($version < '2017-02-19') {
-  echo '<link rel="stylesheet" type="text/css" href="css/adminpage.css"/>',"\n";
-}
 echo '</head>
 <body>',"\n";
 /* with these Conditional Comments you can better address IE issues in CSS files,
