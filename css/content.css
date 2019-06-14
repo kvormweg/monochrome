@@ -106,6 +106,10 @@
   border-color: __border__;
 }
 
+/* line numbers in <file> or <code> */
+.code .li1, .code .li2, .code.li3 {
+  margin-left: 3em;
+}
 
 /*____________ media manager ____________*/
 /* some headings in the media manager should not look like headings */
