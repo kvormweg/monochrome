@@ -3,6 +3,7 @@
  *
  * @author Anika Henke <anika@selfthinker.org>
  * @author Andreas Gohr <andi@splitbrain.org>
+ * @author Klaus Vormweg <klaus.vormweg@gmx.de>
  */
 
 
@@ -13,7 +14,7 @@
   background-color: inherit;
 }
 .dokuwiki a.wikilink1:hover,
-.dokuwiki a.wikilink1:focus, {
+.dokuwiki a.wikilink1:focus {
   color: __rollover__;
   text-decoration: underline;
 }
@@ -106,10 +107,11 @@
   border-color: __border__;
 }
 
-/* line numbers in <file> or <code> */
+/* line numbers in file */
 .code .li1, .code .li2, .code.li3 {
   margin-left: 3em;
 }
+
 
 /*____________ media manager ____________*/
 /* some headings in the media manager should not look like headings */
@@ -126,11 +128,19 @@
   cursor: pointer;
   overflow: visible;
   padding: .1em .4em;
-	background-color: __background__;
-	padding: 0.25em 0.75em;
+  background-color: __background__;
+  padding: 0.25em 0.75em;
 }
 .qq-upload-button:hover {
-	border-color: __borderdark__;
+  border-color: __borderdark__;
+}
+/*____________ media manager popup dialog ____________*/
+#media__popup_content button.button {
+  padding: 0.25em 0.5em;
+}
+#media__popup_content button.selected {
+  background-color: #f0f0f0;
+  border-color: red;
 }
 
 /*____________ styling plugin ____________*/
@@ -140,27 +150,27 @@
 
 /*____________ admin page _______________*/
 .dokuwiki ul.admin_tasks li {
-	list-style: none;
+  list-style: none;
 }
 ul.admin_tasks span.icon {
-	padding-right: 0.2em;
-	position: relative;
-	top: 0.2em;
+  padding-right: 0.2em;
+  position: relative;
+  top: 0.2em;
 }
 div#admin__version {
-	text-align: right;
+  text-align: right;
 }
 
 /* _____________ Editor _________________*/
 .dokuwiki button.toolbutton {
-	padding: 0.2em 0.4em;
+  padding: 0.2em 0.4em;
 }
 #wiki__text {
   font: 100%/1.3 Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
   color: __text_alt__;
 }
 #wiki__editbar label[for=minoredit] {
-	margin-left: 20.5em;
+  margin-left: 20.5em;
 }
 
 /*______________ JS popup _______________*/
