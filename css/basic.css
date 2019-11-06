@@ -7,9 +7,10 @@
  * the other project's basic CSS for DokuWiki instead of this one.
  *
  * @author Anika Henke <anika@selfthinker.org>
+ * @author Klaus Vormweg <klaus.vormweg@gmx.de>
  */
 
-html {
+ html {
   margin: 0;
   padding: 0;
   overflow-x: auto;
@@ -20,7 +21,7 @@ html {
 }
 body {
   margin: 0 auto;
-  font-size: 87.5%;
+  font-size: 93%;
   color: __text__;
 }
 
