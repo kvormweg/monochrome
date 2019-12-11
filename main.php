@@ -74,7 +74,7 @@ echo '                <ul class="a11y skip">
 
             <div class="tools">',"\n";
 if($ACT != 'denied'):
-  echo '                <!-- SITE TOOLS -->
+  echo '                <!-- ********** SITE TOOLS ********** -->
                 <div id="dokuwiki__sitetools">
                     <h3 class="a11y">', $lang['site_tools'], '</h3>',"\n";
   tpl_searchform();
@@ -83,13 +83,15 @@ endif;
 echo '            </div> <!-- .tools -->
             <div class="clearer"></div>',"\n";
 
-echo '            <!-- BREADCRUMBS -->
+echo '            <!-- ********** BREADCRUMBS ********** -->
           <div class="breadcrumbs">',"\n";
 if($ACT != 'denied'):
-  echo '            <!-- MENU -->
+  echo '            <!-- ********** MENU ********** -->
         	    <nav class="mainmenu">
               <input type="checkbox" id="hamburger" class="hamburger" />
-              <label for="hamburger" class="hamburger" title="Menu"><img src="',tpl_basedir(),'images/icon-menu.png"  alt="Menu"> <span class="vishelp">Menu</span></label>',"\n";
+              <label for="hamburger" class="hamburger" title="Menu">',
+        '<img src="',tpl_basedir(),'images/icon-menu.png"  alt="Menu"> ',
+        '<span class="vishelp">Menu</span></label>',"\n";
   _tpl_mainmenu();
   echo '            </nav>',"\n";
   if ($conf['breadcrumbs']):
@@ -117,10 +119,10 @@ echo '                    <!-- wikipage stop -->
                 </div>',"\n";
 tpl_flush();
 tpl_includeFile('pagefooter.html');
-echo '            </div></div><!-- /content -->
-            <!-- ********** ASIDE ********** -->',"\n";
+echo '            </div></div><!-- /content -->',"\n";
 if ($showSidebar):
-  echo '                <div id="dokuwiki__aside">
+  echo '              <!-- ********** SIDEBAR ********** -->
+              <div id="dokuwiki__aside">
                   <div class="pad aside include group">';
   tpl_includeFile('sidebarheader.html');
   tpl_include_page($conf['sidebar'], 1, 1); /* includes the nearest sidebar page */
@@ -132,24 +134,26 @@ endif;
 echo '            <div class="clearer"></div>
             <hr class="a11y" />
 
-            <!-- USER TOOLS and PAGE ACTIONS -->',"\n";
+            <!-- *** USER TOOLS and PAGE ACTIONS *** -->',"\n";
 if ($ACT != 'denied'):
   echo '                <div id="dokuwiki__pagetools">',"\n";
-  if ($conf['useacl']):
+  if (isset($conf['useacl']) and $conf['useacl']):
     echo '                        <h3 class="a11y">', $lang['user_tools'], '</h3>
                       <ul>',"\n";
     echo (new \dokuwiki\Menu\UserMenu())->getListItems();
     echo '                        </ul>',"\n";
   endif;
-  echo '                      <h3 class="a11y">', $lang['page_tools'], '</h3>
+  if (auth_quickaclcheck($ID) > AUTH_READ):
+    echo '                      <h3 class="a11y">', $lang['page_tools'], '</h3>
                     <ul class="pagetools">',"\n";
-  echo (new \dokuwiki\Menu\PageMenu())->getListItems();
-  echo '                    </ul>
+    echo (new \dokuwiki\Menu\PageMenu())->getListItems();
+    echo '                    </ul>
                     <h3 class="a11y">', $lang['site_tools'], '</h3>',"\n";
-  echo '                    <ul class="sitetools">';
-  echo (new \dokuwiki\Menu\SiteMenu())->getListItems();
-  echo '                      </ul>
-                </div>',"\n";
+    echo '                    <ul class="sitetools">';
+    echo (new \dokuwiki\Menu\SiteMenu())->getListItems();
+    echo '                      </ul>',"\n";
+  endif;
+  echo '                </div><!-- /dokuwiki__pagetools -->',"\n";
 endif;
 echo '        </div><!-- /wrapper -->
 
