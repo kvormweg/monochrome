@@ -40,8 +40,11 @@ function _tpl_mainmenu() {
   $data2 = array();
 	$first = true;
   foreach($data as $item) {
-    if(strpos($item['id'],'playground') !== false
-       or strpos($item['id'], $conf['sidebar']) !== false) {
+    if(strpos($item['id'],'playground') !== false) {
+      continue;
+    }
+    if(isset($conf['sidebar'])
+        and strpos($item['id'], $conf['sidebar']) !== false) {
       continue;
     }
     if(strpos($item['id'],$menufilename) !== false and $item['level'] == 1) {
@@ -55,7 +58,7 @@ function _tpl_mainmenu() {
       $data2[$item['id']]['type'] = 'd';
       $data2[$item['id']]['ns'] = $item['id'];
       continue;
-    } 
+    }
     $data2[$item['id']] = $item;
   }
   echo html_buildlist($data2,'idx','_tpl_list_index','_tpl_html_li_index');
@@ -108,4 +111,3 @@ function _tpl_html_li_index($item){
     return '<li class="closed">';
   }
 }
-
