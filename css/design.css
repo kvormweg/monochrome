@@ -9,7 +9,6 @@
 
 /* header
 ********************************************************************/
-
 #dokuwiki__header {
   margin: 1em 0 0;
 }
@@ -18,7 +17,7 @@
   margin-bottom: 2.1em;
 }
 #dokuwiki__header .headings img {
-  margin: 0 auto 0.5em auto;
+  margin: 0 1em 0.5em auto;
 }
 #dokuwiki__header .headings a {
   display: block;
