@@ -111,3 +111,9 @@ function _tpl_html_li_index($item){
     return '<li class="closed">';
   }
 }
+
+function _tpl_media_ispublic($id){
+  $id = cleanID($id);
+  if(auth_quickaclcheck($id)) return true;
+  return false;
+}

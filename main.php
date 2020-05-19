@@ -53,12 +53,10 @@ echo "\n",'        <!-- ********** HEADER ********** -->
           <div class="pad">
             <div class="headings">',"\n";
 /* how to insert logo: upload your logo into the data/media folder (root of the media manager) as 'logo.png' */
-if (file_exists(DOKU_INC.'data/media/logo.png')):
-  if ($ACT != 'denied'):
-    tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
-  endif;
+if (file_exists(DOKU_INC.'data/media/logo.png') and _tpl_media_ispublic('logo.png')):
+  tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 else:
-  tpl_link(wl(),'<img src="'.tpl_basedir().'images/headerpic.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
+  tpl_link(wl(),'<img src="'.tpl_basedir().'images/dokuwiki-128.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 endif;
 echo '                <h1>';
 tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"');
