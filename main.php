@@ -56,7 +56,7 @@ echo "\n",'        <!-- ********** HEADER ********** -->
 if (file_exists(DOKU_INC.'data/media/logo.png') and _tpl_media_ispublic('logo.png')):
   tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 else:
-  tpl_link(wl(),'<img src="'.tpl_basedir().'images/dokuwiki-128.png" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
+  tpl_link(wl(),'<img src="'.tpl_basedir().'images/dokuwiki.svg" alt="'.$conf['title'].'" style="width: 5em;" />',' accesskey="h" title="[H]"');
 endif;
 echo '                <h1>';
 tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"');
