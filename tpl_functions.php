@@ -6,18 +6,25 @@
  * not provided by the DokuWiki core.
  * It is common practice to start each function with an underscore
  * to make sure it won't interfere with future core functions.
+ *
+ * @author Andreas Gohr <andi@splitbrain.org>
+ * @author klaus Vormweg <klaus.vormweg@gmx.de>
+ *
  */
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
-/* prints the menu */
+/** prints the menu
+ *  @param void
+ *  @return void
+*/
 function _tpl_mainmenu() {
   require_once(DOKU_INC.'inc/search.php');
   global $conf;
   global $ID;
 
-/* options for search() function */
+  /* options for search() function */
   $opts = array(
    'depth' => 0,
    'listfiles' => true,
@@ -64,14 +71,17 @@ function _tpl_mainmenu() {
   echo html_buildlist($data2,'idx','_tpl_list_index','_tpl_html_li_index');
 }
 
-/* Index item formatter
- * Callback function for html_buildlist()
+/** Index item formatter
+ *  Callback function for html_buildlist()
+ *
+ *  @param array $item
+ *  @return string html
 */
-function _tpl_list_index($item){
+function _tpl_list_index($item) {
 /*  global $ID;
   global $conf; */
   $ret = '';
-  if($item['type'] == 'd'){
+  if($item['type'] == 'd') {
     if(@file_exists(wikiFN($item['id'].':'.$conf['start']))) {
       $ret .= html_wikilink($item['id'].':'.$conf['start'], $item['title']);
     } elseif(@file_exists(wikiFN($item['id'].':'.$item['id']))) {
@@ -84,6 +94,7 @@ function _tpl_list_index($item){
   }
   return $ret;
 }
+
 /**
  * Index List item
  *
@@ -91,18 +102,16 @@ function _tpl_list_index($item){
  * <li> tags for namespaces when displaying the page index
  * it gives different classes to opened or closed "folders"
  *
- * @author Andreas Gohr <andi@splitbrain.org>
- *
  * @param array $item
  * @return string html
  */
-function _tpl_html_li_index($item){
+function _tpl_html_li_index($item) {
   global $INFO;
 
   $class = '';
   $id = '';
 
-  if($item['type'] == "f"){
+  if($item['type'] == "f") {
     // scroll to the current item
     return '<li class="level'.$item['level'].$class.'" '.$id.'>';
   } elseif($item['open']) {
@@ -112,8 +121,17 @@ function _tpl_html_li_index($item){
   }
 }
 
-function _tpl_media_ispublic($id){
+/**
+ * Checks if a media file is readable by the current user
+ *
+ * @param string $id
+ * @return bool
+*/
+function _tpl_media_isreadable($id) {
   $id = cleanID($id);
-  if(auth_quickaclcheck($id)) return true;
-  return false;
+  if(auth_quickaclcheck($id)) {
+    return true;
+  } else {
+    return false;
+  }
 }

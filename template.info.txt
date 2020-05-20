@@ -1,7 +1,7 @@
 base     monochrome
 author   Klaus Vormweg
 email    klaus.vormweg@gmx.de
-date     2019-11-06
+date     2020-05-20
 name     Monochrome Template
 desc     Monochrome wiki template
 url      https://www.tuhh.de/~psvkv/monochrome/
