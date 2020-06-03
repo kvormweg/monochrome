@@ -8,7 +8,7 @@
  * to make sure it won't interfere with future core functions.
  *
  * @author Andreas Gohr <andi@splitbrain.org>
- * @author klaus Vormweg <klaus.vormweg@gmx.de>
+ * @author Klaus Vormweg <klaus.vormweg@gmx.de>
  *
  */
 
@@ -22,7 +22,6 @@ if (!defined('DOKU_INC')) die();
 function _tpl_mainmenu() {
   require_once(DOKU_INC.'inc/search.php');
   global $conf;
-  global $ID;
 
   /* options for search() function */
   $opts = array(
@@ -42,10 +41,10 @@ function _tpl_mainmenu() {
 
 
   $data = array();
- 	search($data,$conf['datadir'],'search_universal',$opts);
+  search($data,$conf['datadir'],'search_universal',$opts);
   $i = 0;
   $data2 = array();
-	$first = true;
+  $first = true;
   foreach($data as $item) {
     if(strpos($item['id'],'playground') !== false) {
       continue;
@@ -53,9 +52,6 @@ function _tpl_mainmenu() {
     if(isset($conf['sidebar'])
         and strpos($item['id'], $conf['sidebar']) !== false) {
       continue;
-    }
-    if(strpos($item['id'],$menufilename) !== false and $item['level'] == 1) {
-    	continue;
     }
     if($item['id'] == $start or preg_match('/:'.$start.'$/',$item['id'])
        or preg_match('/(\w+):\1$/',$item['id'])) {
@@ -78,8 +74,7 @@ function _tpl_mainmenu() {
  *  @return string html
 */
 function _tpl_list_index($item) {
-/*  global $ID;
-  global $conf; */
+  global $conf;
   $ret = '';
   if($item['type'] == 'd') {
     if(@file_exists(wikiFN($item['id'].':'.$conf['start']))) {
@@ -87,7 +82,7 @@ function _tpl_list_index($item) {
     } elseif(@file_exists(wikiFN($item['id'].':'.$item['id']))) {
       $ret .= html_wikilink($item['id'].':'.$item['id'], $item['title']);
     } else {
-      $ret .= html_wikilink($item['id'].':', $item['title']);
+      $ret .= html_wikilink($item['id'].':', $conf['start']);
     }
   } else {
     $ret .= html_wikilink(':'.$item['id'], $item['title']);
@@ -112,12 +107,9 @@ function _tpl_html_li_index($item) {
   $id = '';
 
   if($item['type'] == "f") {
-    // scroll to the current item
     return '<li class="level'.$item['level'].$class.'" '.$id.'>';
-  } elseif($item['open']) {
-    return '<li class="open">';
   } else {
-    return '<li class="closed">';
+    return '<li class="closed level'.$item['level'].$class.'">';
   }
 }
 

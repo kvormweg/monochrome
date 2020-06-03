@@ -6,6 +6,11 @@
  * @author   Anika Henke <anika@selfthinker.org>
  * @author   klaus Vormweg <klaus.vormweg@gmx.de>
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ *
+ * @var string $ID
+ * @var string $ACT
+ * @var array  $conf
+ * @var array  $lang
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
@@ -85,7 +90,7 @@ echo '            <!-- ********** BREADCRUMBS ********** -->
           <div class="breadcrumbs">',"\n";
 if($ACT != 'denied'):
   echo '            <!-- ********** MENU ********** -->
-        	    <nav class="mainmenu">
+              <nav class="mainmenu">
               <input type="checkbox" id="hamburger" class="hamburger" />
               <label for="hamburger" class="hamburger" title="Menu">',
         '<img src="',tpl_basedir(),'images/icon-menu.png"  alt="Menu"> ',

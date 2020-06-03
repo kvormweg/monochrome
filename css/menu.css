@@ -3,8 +3,8 @@ div.dokuwiki .vishelp {
   display: none;
 }
 div.dokuwiki nav.mainmenu {
-	padding: 0px 1em 5px 0px;
-	float: left;
+  padding: 0px 1em 5px 0px;
+  float: left;
 }
 
 div.dokuwiki nav.mainmenu > ul {
@@ -14,23 +14,31 @@ div.dokuwiki nav.mainmenu > ul {
   margin: 0;
   padding: 0;
   height: auto;
-  border-left: 1px solid __border__;
+  border: 1px solid __border__;
+  margin-top: 5px;
 }
-div.dokuwiki nav.mainmenu > ul .curid a {
+#dokuwiki__header nav.mainmenu > ul .curid a {
   font-weight: bold;
 }
 div.dokuwiki nav.mainmenu ul.idx li {
   list-style-image: none;
 }
-div.dokuwiki nav.mainmenu ul.idx li.open {
-	list-style-image: url("../../images/open.png");
+div.dokuwiki nav.mainmenu ul.idx li div.li span.inout {
+  cursor: pointer;
+  padding: 3px 5px 0 1px;
+}
+div.dokuwiki nav.mainmenu ul.idx li div.li span.open {
+  background: transparent url("../../images/open.png") no-repeat center;
+}
+div.dokuwiki nav.mainmenu ul.idx li div.li span.closed {
+  background: transparent url("../../images/closed.png") no-repeat center;
 }
 div.dokuwiki input#hamburger {
   position: absolute;
   clip: rect(0, 0, 0, 0);
 }
 div.dokuwiki label[for="hamburger"] img {
-	margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 div.dokuwiki #hamburger:checked ~ ul {
   display: block;
@@ -51,6 +59,10 @@ div.dokuwiki nav.mainmenu ul ul {
   padding: 0px 0px 0.25em 1em;
   list-style-type: none;
   list-style-image: none;
+}
+
+div.dokuwiki nav.mainmenu ul li.closed ul {
+  display: none;
 }
 
 div.dokuwiki nav.mainmenu ul ul li {
