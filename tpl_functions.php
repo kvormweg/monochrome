@@ -15,9 +15,11 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
-/** prints the menu
- *  @param void
- *  @return void
+/**
+ * prints the menu
+ *
+ * @param void
+ * @return void
 */
 function _tpl_mainmenu() {
   require_once(DOKU_INC.'inc/search.php');
@@ -39,12 +41,10 @@ function _tpl_mainmenu() {
     $start = 'start';
   }
 
-
   $data = array();
   search($data,$conf['datadir'],'search_universal',$opts);
   $i = 0;
   $data2 = array();
-  $first = true;
   foreach($data as $item) {
     if(strpos($item['id'],'playground') !== false) {
       continue;
@@ -53,6 +53,7 @@ function _tpl_mainmenu() {
         and strpos($item['id'], $conf['sidebar']) !== false) {
       continue;
     }
+    ## unset()!!!
     if($item['id'] == $start or preg_match('/:'.$start.'$/',$item['id'])
        or preg_match('/(\w+):\1$/',$item['id'])) {
       continue;
@@ -63,15 +64,18 @@ function _tpl_mainmenu() {
       continue;
     }
     $data2[$item['id']] = $item;
+    $i++;
   }
+  usort($data2,"_tpl_sort_index");
   echo html_buildlist($data2,'idx','_tpl_list_index','_tpl_html_li_index');
 }
 
-/** Index item formatter
- *  Callback function for html_buildlist()
+/**
+ * Index item formatter
+ * Callback function for html_buildlist()
  *
- *  @param array $item
- *  @return string html
+ * @param array $item
+ * @return string html
 */
 function _tpl_list_index($item) {
   global $conf;
@@ -93,9 +97,8 @@ function _tpl_list_index($item) {
 /**
  * Index List item
  *
- * This user function is used in html_buildlist to build the
+ * Callback function for html_buildlist to build the
  * <li> tags for namespaces when displaying the page index
- * it gives different classes to opened or closed "folders"
  *
  * @param array $item
  * @return string html
@@ -126,4 +129,11 @@ function _tpl_media_isreadable($id) {
   } else {
     return false;
   }
+}
+
+/**
+ * Callback function for usort
+*/
+function _tpl_sort_index($a, $b) {
+  return strcmp($a['id'],$b['id']);
 }
