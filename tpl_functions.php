@@ -8,6 +8,7 @@
  * to make sure it won't interfere with future core functions.
  *
  * @author Andreas Gohr <andi@splitbrain.org>
+ * @author Anika Henke <anika@selfthinker.org>
  * @author Klaus Vormweg <klaus.vormweg@gmx.de>
  *
  */
@@ -115,6 +116,40 @@ function _tpl_html_li_index($item) {
     return '<li class="closed level'.$item['level'].$class.'">';
   }
 }
+
+/**
+ * Returns <link> tag for various icon types (favicon|mobile)
+ *
+ * @param  array $types - list of icon types to display (favicon|mobile)
+ * @return string
+ */
+function _tpl_favicon($types = array('favicon','mobile')) {
+
+  $return = '';
+
+  $typearr = array();
+  foreach($types as $type) {
+    switch($type) {
+      case 'favicon':
+        $typearr['shortcut icon'] = 'favicon.ico';
+      case 'mobile':
+        $typearr['apple-touch-icon'] = 'apple-touch-icon.png';
+    }
+  }
+  foreach($typearr as $type => $fname) {
+    $look = array(':wiki:'.$fname, ':'.$fname, 'images/'.$fname);
+    $i = 0;
+    while($look[$i] and strpos($look[$i],'images') === FALSE) {
+      if(!auth_quickaclcheck($look[$i])) {
+        unset($look[$i]);
+      }
+      $i++;
+    }
+    $return .= '<link rel="'.$type.'" href="'.tpl_getMediaFile($look).'" />'.NL;
+  }
+  return $return;
+}
+
 
 /**
  * Checks if a media file is readable by the current user

@@ -28,13 +28,14 @@ echo '<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="', $conf['lang'],
 '" lang="', $conf['lang'], '" dir="', $lang['direction'], '" class="no-js">
 <head>
-    <meta charset="UTF-8" />
-    <title>';
+<meta charset="UTF-8" />
+<title>';
 tpl_pagetitle();
 echo ' [', strip_tags($conf['title']), ']</title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,\'js\')})(document.documentElement)</script>',"\n";
 tpl_metaheaders();
-echo '    <meta name="viewport" content="width=device-width,initial-scale=1" />', tpl_favicon(array('favicon', 'mobile'));
+echo '    <meta name="viewport" content="width=device-width,initial-scale=1" />',"\n",
+     _tpl_favicon();
 tpl_includeFile('meta.html');
 echo '</head>
 <body>',"\n";
@@ -47,7 +48,7 @@ echo '    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->',"\n";
    should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */
 echo '    <div id="dokuwiki__site">
       <div id="dokuwiki__top" class="site ', tpl_classes();
-if ($showSidebar):
+if($showSidebar):
   echo ' hasSidebar';
 endif;
 echo '">';
@@ -58,7 +59,7 @@ echo "\n",'        <!-- ********** HEADER ********** -->
           <div class="pad">
             <div class="headings">',"\n";
 /* how to insert logo: upload your logo into the data/media folder (root of the media manager) as 'logo.png' */
-if (file_exists(DOKU_INC.'data/media/logo.png') and _tpl_media_isreadable('logo.png')):
+if(file_exists(DOKU_INC.'data/media/logo.png') and _tpl_media_isreadable('logo.png')):
   tpl_link(wl(),'<img src="'.ml('logo.png').'" alt="'.$conf['title'].'" />',' accesskey="h" title="[H]"');
 else:
   tpl_link(wl(),'<img src="'.tpl_basedir().'images/dokuwiki.svg" alt="'.$conf['title'].'" style="width: 5em;" />',' accesskey="h" title="[H]"');
@@ -66,7 +67,7 @@ endif;
 echo '                <h1>';
 tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]"');
 echo '</h1>',"\n";
-if ($conf['tagline']):
+if($conf['tagline']):
   echo '                    <p class="claim">', $conf['tagline'], '</p>',"\n";
 endif;
 echo '                <ul class="a11y skip">
