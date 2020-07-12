@@ -50,7 +50,7 @@ function _tpl_mainmenu() {
     if(strpos($item['id'],'playground') !== false) {
       continue;
     }
-    if(isset($conf['sidebar'])
+    if(isset($conf['sidebar']) and $conf['sidebar']
         and strpos($item['id'], $conf['sidebar']) !== false) {
       continue;
     }
