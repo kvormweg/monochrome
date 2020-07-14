@@ -50,9 +50,12 @@ function _tpl_mainmenu() {
     if(strpos($item['id'],'playground') !== false) {
       continue;
     }
-    if(isset($conf['sidebar']) and $conf['sidebar']
-        and strpos($item['id'], $conf['sidebar']) !== false) {
-      continue;
+    if(isset($conf['sidebar'])) {
+      if($conf['sidebar']) {
+        if(strpos($item['id'], $conf['sidebar']) !== false) {
+          continue;
+        }
+      }
     }
     ## unset()!!!
     if($item['id'] == $start or preg_match('/:'.$start.'$/',$item['id'])
