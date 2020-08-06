@@ -1,4 +1,8 @@
-/*____________ admin page _______________*/
+/**
+ * This file provides additional styles for the admin page.
+ *
+ * @author Klaus Vormweg <klaus.vormweg@gmx.de>
+ */
 .dokuwiki div.ui-admin ul li a span.icon {
 	width: 1.5em;
 	min-height: 1.5em;
