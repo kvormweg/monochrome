@@ -50,7 +50,7 @@
 	font-size: 0.85em;
 }
 #dokuwiki__header .tools ul li {
-  display: inline;
+  display: block;
 }
 
 #dokuwiki__header form.search {
@@ -61,6 +61,9 @@
 #dokuwiki__header form.search input#qsearch__in {
   width: 18em;
   padding: .35em 22px .35em .1em;
+}
+#dokuwiki__header form.search div#qsearch__out {
+  display: none;
 }
 #dokuwiki__header form.search button {
   background: transparent url(images/search.png) no-repeat 0 0;
